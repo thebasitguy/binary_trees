@@ -3,7 +3,7 @@
 /**
  * heap_insert - Inserts a value in Max Binary Heap
  *
- * @root: Double pointer to the root node of the Heap to insert the value
+ * @root: Double pointer to root node of the Heap to insert the value
  * @value: Value to store in the node to be inserted
  *
  * Return: Pointer to the created node
@@ -24,7 +24,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	leaves = size;
 	for (level = 0, sub = 1; leaves >= sub; sub *= 2, level++)
 		leaves -= sub;
-	
+
 	/* subtract all nodes except for bottom-most level */
 
 	for (bit = 1 << (level - 1); bit != 1; bit >>= 1)
@@ -50,7 +50,7 @@ heap_t *heap_insert(heap_t **root, int value)
 		flip->parent->n = tmp;
 		new = new->parent;
 	}
-	
+
 	/* Flip values with parent until parent value exceeds new value */
 
 	return (new);
